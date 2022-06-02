@@ -9,7 +9,7 @@ Website with flask, js
 
 가상환경 내에서 flask, sqlalchemy 등 설치해줘야함
 
-위쪽 부분에 UPLOAD_FOLDER 경로를 잘 맞춰줘야 함
+위쪽 부분에 UPLOAD_FOLDER 경로를 잘 맞춰줘야 함 (main.py 있는 폴더 안의 static 폴더)
 
 sqlite3 관련 에러가 난다면 data.sqlite3를 삭제해준다
 	-> 데이터를 저장하는 곳 같은데 클래스 변수 바뀌거나 하면 터지는 듯 하다.
