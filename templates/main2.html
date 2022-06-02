@@ -48,23 +48,31 @@
 
         <h5 class="mt-4 mb-2 text-center">전체 상품</h5>
         <hr>
-        {% for st in product_query %}
+        <!-- {% for st in product_query %}
           <p>{{st.p_name}}</p>
-        {% endfor %}
+        {% endfor %} -->
 
 
         <div class="row mt-4"> 
           {% for st in product_query %}
             <div class="card col-6 border-0" >
-              <img src="{{ url_for('static', filename= st.p_img ) }}" class="card-img-top" alt="...">
+              <img src="../static/{{ st.p_img }}" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">{{ st.p_name }}</h5>
-                <p class="card-text">{{ st.p_price }}</p>
+                <p class="card-text">{{ st.p_price }} 원</p>
+                <p class="card-text">{{ st.p_sale }}</p>
                 <a class="btn btn-primary" href="{{ url_for('detail', p_name = st.p_name) }}">자세히</a>
               </div>
             </div>
           {% endfor %}
         </div>
+
+
+        <div class="p-5 mt-5">
+          <p class="text-center" style="color:grey">software engineering term project 2022</p>
+        </div>
+          
+
 
 
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

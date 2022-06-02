@@ -22,13 +22,13 @@
                       <!-- <a class="navbar-brand" href="#">Hidden brand</a> -->
                       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li class="nav-item active">
-                          <a class="nav-link" href="#">전체상품<span class="sr-only">(current)</span></a>
+                          <a class="nav-link" onclick="location.href='/'">전체상품<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#">팔로잉</a>
+                          <a class="nav-link" onclick="location.href='/following'">팔로잉</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">판매내역</a>
+                            <a class="nav-link" onclick="location.href='/selling'">판매내역</a>
                           </li>
                         <!-- <li class="nav-item">
                           <a class="nav-link" href="#"></a>
@@ -52,10 +52,11 @@
           {% for st in product_query %}
             {% if st.p_id == username %}
               <div class="card col-6 border-0" >
-                <img src="/../img/main.png" class="card-img-top" alt="...">
+                <img src="../static/{{ st.p_img }}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">{{ st.p_name }}</h5>
-                  <p class="card-text">{{ st.p_price }}</p>
+                  <p class="card-text">{{ st.p_price }} 원</p>
+                  <p class="card-text">{{ st.p_sale }}</p>
                   <a class="btn btn-primary" href="{{ url_for('detail', p_name = st.p_name) }}">자세히</a>
                 </div>
               </div>
@@ -66,6 +67,10 @@
         </div>
 
 
+
+        <div class="p-5 mt-5">
+          <p class="text-center" style="color:grey">software engineering term project 2022</p>
+        </div>
 
 
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

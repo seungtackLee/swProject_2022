@@ -52,26 +52,24 @@
         <div class="row mt-4"> 
           {% for st in product_query %}
             <div class="card col-6 border-0" >
-              <img src="img/pic.jpeg" class="card-img-top" alt="...">
+              <img src="../static/{{ st.p_img }}" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">{{ st.p_name }}</h5>
-                <p class="card-text">{{ st.p_price }}</p>
+                <p class="card-text">{{ st.p_price }} 원</p>
+                <p class="card-text">{{ st.p_sale }}</p>
                 <a class="btn btn-primary" href="{{ url_for('detail', p_name = st.p_name) }}">자세히</a>
               </div>
             </div>
           {% endfor %}
-
-
         </div>
         
 
-        <script>
-          function func(){
-            var txt = document.getElementById("search").value;
 
-            {{url_for('search', word=txt)}}
-          }
-        </script>
+
+        <div class="p-5 mt-5">
+          <p class="text-center" style="color:grey">software engineering term project 2022</p>
+        </div>
+
 
 
 

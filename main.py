@@ -2,12 +2,15 @@ from collections import UserDict
 from flask import Flask, render_template, request, url_for, redirect, flash, session
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
+import os
 
 app=Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.sqlite3'
 app.config['SECRET_KEY'] = "secret"
 db = SQLAlchemy(app)
 
+# static 폴더로 경로 설정
+app.config['UPLOAD_FOLDER'] = '/Users/code_rosie/desktop/coding/py/static/'
 
 
 class User_class(db.Model):
@@ -128,10 +131,10 @@ def upload():
         else:
             name=request.form['name']
             f = request.files['file']
-            f.save('./images/'+secure_filename(f.filename))
+            f.save(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(f.filename)))
             
             
-            product = Product_class(name, request.form['price'], "판매중", session['username'], request.form['info'], 'images/'+secure_filename(f.filename))
+            product = Product_class(name, request.form['price'], "판매중", session['username'], request.form['info'], secure_filename(f.filename))
             db.session.add(product)
             db.session.commit()
             
