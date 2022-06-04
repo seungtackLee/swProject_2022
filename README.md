@@ -1,13 +1,13 @@
 # softwareEngineeringProject
 Website with flask, js
 
-실행 전
 
-실습 파일 flask 부분 따라서
+220602)
+실행 전 실습 파일 flask 부분 따라서
 
 실행을 위한 가상환경 생성 후 (venv), vscode에서 만든 가상환경으로 경로 설정
 
-가상환경 내에서 flask, sqlalchemy 등 설치해줘야함
+가상환경 내에서 flask, sqlalchemy 등 설치 필요
 
 (flaskenvtest, static, templates, venv 폴더, data.sqlite3, main.py 존재)
 
@@ -15,3 +15,6 @@ Website with flask, js
 
 sqlite3 관련 에러가 난다면 data.sqlite3를 삭제해준다
 	-> 데이터를 저장하는 곳 같은데 클래스 변수 바뀌거나 하면 터지는 듯 하다.
+
+220605)
+그 수정 가능한 edit.html과, 관련한 flask 코드 추가, 버그 수정
