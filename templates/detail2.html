@@ -7,7 +7,7 @@
 
       <header>
         <div class="d-block">
-            <h6 class="text-right mt-2">{{username}} 님 </h6>
+            <p class="text-right mt-3">{{username}} 님 </p>
             <button type="button" href="{{ url_for('logout') }}" class="btn btn-light float-right" onclick="location.href='/logout'">로그아웃</button>
     </div>
         <div class="m-5">
@@ -37,9 +37,9 @@
                       <a class="nav-link" href="#"></a>
                     </li> -->
                   </ul>
-                  <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                  <form class="form-inline my-2 my-lg-0" method="POST">
+                    <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
+                    <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="검색" />
                   </form>
                 </div>
               </nav>
@@ -71,6 +71,8 @@
             {% else %}
                 <button type="button" class="btn btn-light float-right" onclick="location.href='/soldin/{{result.p_name}}'">판매중</button>
             {% endif %}
+
+            <button type="button" class="btn btn-light float-left" onclick="location.href='/edit/{{result.p_name}}'">수정</button>
         {% else %}
             {% if result.p_id not in result_user.u_following %}
                 <button type="button" class="btn btn-light float-right" onclick="location.href='/follow/{{result.p_id}}'">판매자 팔로우</button>

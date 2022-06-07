@@ -60,7 +60,7 @@
                     <h5 class="card-title">{{ st.p_name }}</h5>
                     <p class="card-text">{{ st.p_price }} 원</p>
                     <p class="card-text">{{ st.p_sale }}</p>
-                    <a class="btn btn-primary" href="{{ url_for('detail', p_name = st.p_name) }}">자세히</a>
+                    <a class="btn btn-outline-success float-right" href="{{ url_for('detail', p_name = st.p_name) }}">자세히</a>
                   </div>
                 </div>
               {% endif %}

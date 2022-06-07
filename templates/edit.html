@@ -28,49 +28,60 @@
                           <a class="nav-link" onclick="location.href='/following'">팔로잉</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" onclick="location.href='/selling'">판매내역</a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" onclick="location.href='/upload'">물건올리기</a>
-                          </li>
+                          <a class="nav-link" onclick="location.href='/selling'">판매내역</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" onclick="location.href='/upload'">물건올리기</a>
+                        </li>
+                        <!-- <li class="nav-item">
+                          <a class="nav-link" href="#"></a>
+                        </li> -->
                       </ul>
-                      <form class="form-inline my-2 my-lg-0" method="POST">
-                        <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
-                        <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="검색" />
-                      </form>
+                      <!-- <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                      </form> -->
                     </div>
                   </nav>
             </div>
         </header>
 
 
-        <h5 class="mt-4 mb-2 text-center">판매 내역</h5>
+        <h5 class="mt-4 mb-2 text-center">수정하기</h5>
         <hr>
+     
+        <form method="POST" enctype="multipart/form-data">
+          <div class="form-group mt-5" style="width:200px; margin: 0 auto">
+            <label for="exampleFormControlFile1">물건 사진</label>
+            <input type="file" name="file" value="{{result.p_img}}" class="form-control-file" id="exampleFormControlFile1">
+          </div>
+          <div class="form-group mt-3" style="width:350px; margin: 0 auto">
+            <label for="exampleFormControlInput1">물건 이름</label>
+            <input type="text" name="name" value="{{result.p_name}}" class="form-control" id="exampleFormControlInput1">
+          </div>
+          <div class="form-group mt-3" style="width:350px; margin: 0 auto">
+            <label for="exampleFormControlInput1">물건 가격</label>
+            <input type="text" name="price" value="{{result.p_price}}" class="form-control" id="exampleFormControlInput1">
+          </div>
+          <div class="form-group mt-3" style="width:350px; margin: 0 auto">
+            <label for="exampleFormControlTextarea1">부가 설명</label>
+            <textarea class="form-control" name="info" id="exampleFormControlTextarea1" rows="5">{{result.p_info}}</textarea>
+          </div>
+          
 
-
-        <div class="row mt-4"> 
-          {% for st in product_query %}
-            {% if st.p_id == username %}
-              <div class="card col-6 border-0" >
-                <img src="../static/{{ st.p_img }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">{{ st.p_name }}</h5>
-                  <p class="card-text">{{ st.p_price }} 원</p>
-                  <p class="card-text">{{ st.p_sale }}</p>
-                  <a class="btn btn-outline-success float-right" href="{{ url_for('detail', p_name = st.p_name) }}">자세히</a>
-                </div>
-              </div>
-            {% endif %}
-          {% endfor %}
-
-
-        </div>
-
+          <div class="text-center mt-4">
+            <input type="submit" value="수정하기" class="btn btn-light" />
+          </div>
+        </form>
+   
+   
 
 
         <div class="p-5 mt-5">
           <p class="text-center" style="color:grey">software engineering term project 2022</p>
         </div>
+
+
 
 
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

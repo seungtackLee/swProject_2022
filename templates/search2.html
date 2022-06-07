@@ -7,7 +7,7 @@
 
         <header>
           <div class="d-block">
-            <h6 class="text-right mt-2">{{username}} 님 </h6>
+            <p class="text-right mt-3">{{username}} 님 </p>
             <button type="button" href="{{ url_for('logout') }}" class="btn btn-light float-right" onclick="location.href='/logout'">로그아웃</button>
           </div>
             <div class="m-5">
@@ -37,10 +37,10 @@
                           <a class="nav-link" href="#"></a>
                         </li> -->
                       </ul>
-                      <!-- <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                      </form> -->
+                      <form class="form-inline my-2 my-lg-0" method="POST">
+                        <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
+                        <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="검색" />
+                      </form>
                     </div>
                   </nav>
             </div>
@@ -54,12 +54,12 @@
         <div class="row mt-4"> 
           {% for st in result %}
             <div class="card col-6 border-0" >
-              <img src="/../img/main.png" class="card-img-top" alt="...">
+              <img src="../static/{{ st.p_img }}" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">{{ st.p_name }}</h5>
                 <p class="card-text">{{ st.p_price }} 원</p>
                 <p class="card-text">{{ st.p_sale }}</p>
-                <a class="btn btn-primary" href="{{ url_for('detail', p_name = st.p_name) }}">자세히</a>
+                <a class="btn btn-outline-success float-right" href="{{ url_for('detail', p_name = st.p_name) }}">자세히</a>
               </div>
             </div>
           {% endfor %}
